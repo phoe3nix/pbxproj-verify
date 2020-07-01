@@ -7,6 +7,7 @@
 
 import Foundation
 import ArgumentParser
+import Pbxproj_verifyKit
 
 internal struct Impact: ParsableCommand {
 
@@ -15,6 +16,11 @@ internal struct Impact: ParsableCommand {
 	)
 
 	mutating func run() throws {
+		let impactPbxproj = ImpactPbxproj()
+		if !impactPbxproj.isNeedCheckImpact {
+			print("no changes in pbxproj files")
+			Self.exit(withError: nil)
+		}
 		
 	}
 
