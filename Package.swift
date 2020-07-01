@@ -10,12 +10,14 @@ let package = Package(
     ],
     dependencies: [
 		.package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMinor(from: "0.2.0")),
+		.package(name: "XcodeProj", url: "https://github.com/tuist/xcodeproj.git", .upToNextMajor(from: "7.12.0"))
     ],
     targets: [
 		.target(
 			name: "pbxproj-verifyKit",
 			dependencies: [
-		]),
+            	"XcodeProj",
+        ]),
         .target(
             name: "pbxproj-verify",
             dependencies: [
