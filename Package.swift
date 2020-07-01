@@ -7,9 +7,9 @@ let package = Package(
     name: "pbxproj-verify",
 	products: [
 		.library(name: "pbxproj-verifyKit", targets: ["pbxproj-verifyKit"]),
-		.executable(name: "pbxproj-verify", targets: ["pbxproj-verify"]),
     ],
     dependencies: [
+		.package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMinor(from: "0.2.0")),
     ],
     targets: [
 		.target(
@@ -20,6 +20,7 @@ let package = Package(
             name: "pbxproj-verify",
             dependencies: [
 				.target(name: "pbxproj-verifyKit"),
+				.product(name: "ArgumentParser", package: "swift-argument-parser"),
 		]),
         .testTarget(
             name: "pbxproj-verifyTests",
